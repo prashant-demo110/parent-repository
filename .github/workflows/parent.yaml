@@ -12,10 +12,8 @@ jobs:
       - name: Job 1 from Parent Repository
         uses: actions/checkout@v3
       - name: Job 2 from Parent Repository
-        with:
-          AZURE_USERNAME: ${{ secrets.AUSER }}
-          AZURE_PASSWORD: ${{ secrets.APASS }}
-      - name: Job 3 from Parent Repository
-        run: echo "$AZURE_USERNAME"
-      - name: Job 4 from Parent Repository
-        run: echo $AZURE_USERNAME
+        run: | 
+          echo "USER=${{ secrets.AUSER }}" >> $GITHUB_ENV        
+          echo "PASS=${{ secrets.APASS }}" >> $GITHUB_ENV
+          echo ${{env.USER}}
+          echo ${{env.PASS}}
