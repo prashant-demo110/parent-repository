@@ -7,15 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+      env:
+        variable: ${{ secrets.PASSWORD }}
+      runs-on: ubuntu-latest
+      steps:
+#         - name: Fetching Secrets from Github Secrets
+#           uses: actions/checkout@v3
+#           with: 
+#             variable: ${{ secrets.PASSWORD }}
 
-    steps:
-
-      - name: Fetching Secrets from Github Secrets
-        uses: actions/checkout@v3
-        with: 
-          variable: ${{ secrets.PASSWORD }}
-
-      - name: Printing Secrets from Github Secrets
-        run: |
-          Stored secret is: "$variable"
+        - name: Printing Secrets from Github Secrets
+          run: echo ${{env.variable}}
