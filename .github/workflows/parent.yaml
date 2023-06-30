@@ -12,8 +12,17 @@ jobs:
       - name: Job 1 from Parent Repository
         uses: actions/checkout@v3
       - name: Job 2 from Parent Repository
+        env:
+          USER: ${{ secrets.AUSER }}
+          PASS: ${{ secrets.APASS }}
+      - name: Job 3 from Parent Repository
         run: | 
           echo "USER=${{ secrets.AUSER }}" >> $GITHUB_ENV        
           echo "PASS=${{ secrets.APASS }}" >> $GITHUB_ENV
           echo "${{env.USER}}"
           echo "${{env.PASS}}"
+      - name: Job 4 Set up secret file
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AUSER }}
+        run: |
+          echo ${{ secrets.AUSER }} | sed 's/./& /g'
