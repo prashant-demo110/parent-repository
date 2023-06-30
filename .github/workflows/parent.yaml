@@ -1,0 +1,23 @@
+name: Parent Workflow
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Fetching Secrets from Github Secrets
+        with: 
+          variable: ${{ secrets.PASSWORD }}
+
+      - shell: bash
+        env:
+          variable: ${{ secrets.SuperSecret }}
+        run: |
+          Stored secret is: "$variable"
