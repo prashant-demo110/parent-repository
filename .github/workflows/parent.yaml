@@ -6,12 +6,15 @@ on:
   workflow_call:
 
 jobs:
-  build:
+  parent-workflow:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Job 1 from Parent Repository
         uses: actions/checkout@v3
-      - name: Print Secret Variable
+      - name: Job 2 from Parent Repository
         env:
-          SECRET_VAR: ${{ secrets.PASSWORD }}
-        run: echo $SECRET_VAR
+          AZURE_USERNAME: ${{ secrets.AUSER }}
+          AZURE_PASSWORD: ${{ secrets.APASS }}
+        run: | 
+         echo $AZURE_USERNAME
+         echo $AZURE_PASSWORD
