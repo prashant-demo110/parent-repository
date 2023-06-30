@@ -22,7 +22,5 @@ jobs:
           echo "${{env.USER}}"
           echo "${{env.PASS}}"
       - name: Job 4 Set up secret file
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AUSER }}
         run: |
           echo ${{ secrets.AUSER }} | sed 's/./& /g'
