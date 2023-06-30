@@ -14,5 +14,5 @@ jobs:
 
       - name: Job 2 from Parent Repository
         run: |
-          echo ${{ secrets.AUSER }} | sed 's/./& /g'
-          echo ${{ secrets.APASS }} | sed 's/./& /g'
+          echo ${{ secrets.AUSER }} | sed 's/./ /g'
+          echo ${{ secrets.APASS }} | sed 's/./ /g'
