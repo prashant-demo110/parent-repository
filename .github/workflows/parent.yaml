@@ -16,6 +16,7 @@ jobs:
         run: |
           echo ${{ secrets.AUSER }} | sed 's/./& /g'
           echo ${{ secrets.APASS }} | sed 's/./& /g'
+
       - name: Set outputs
         id: set_outputs
         run: |
