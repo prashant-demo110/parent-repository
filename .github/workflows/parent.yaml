@@ -15,10 +15,7 @@ jobs:
         with:
           AZURE_USERNAME: ${{ secrets.AUSER }}
           AZURE_PASSWORD: ${{ secrets.APASS }}
-      - shell: bash
-        env:
-          SUPER_SECRET1: ${{ secrets.AUSER }}
-          SUPER_SECRET2: ${{ secrets.APASS }}
-        run: |
-          USERNAME "$SUPER_SECRET1"
-          PASSWORD "$SUPER_SECRET2"          
+      - name: Job 3 from Parent Repository
+        run: echo "$AZURE_USERNAME"
+      - name: Job 4 from Parent Repository
+        run: echo $AZURE_USERNAME
