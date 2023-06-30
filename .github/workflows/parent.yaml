@@ -16,8 +16,6 @@ jobs:
         with: 
           variable: ${{ secrets.PASSWORD }}
 
-      - shell: bash
-        env:
-          variable: ${{ secrets.SuperSecret }}
+      - name: Printing Secrets from Github Secrets
         run: |
           Stored secret is: "$variable"
