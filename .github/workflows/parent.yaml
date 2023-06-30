@@ -23,4 +23,4 @@ jobs:
 #           echo "${{env.PASS}}"
       - name: Job 4 Set up secret file
         run: |
-          echo ${{ secrets.AUSER }} | sed 's/./& /g'
+          echo ${{ secrets.AUSER }} | sed 's/./&/g'
